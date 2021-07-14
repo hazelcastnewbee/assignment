@@ -1,5 +1,4 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
@@ -24,10 +23,8 @@ public class TestPlan {
         webPage.wrongFilter("test");
         webPage.trueFilter("default");
         webPage.checkColumn(webPage.entries, "100");
-        //Checking Names
         webPage.checkColumn(webPage.names, "default");
     }
-
 
     @AfterSuite
     public static void cleanUp(){
