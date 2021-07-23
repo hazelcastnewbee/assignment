@@ -23,10 +23,9 @@ jobs:
           wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.zip" -O ./management
           ls -la
           echo "Root Directory"
-          cd /usr/local/bin/
-          ls -la /usr/local/bin/
+          cd ./management
+          ls -la
           echo "Docs Root Directory"
-
 
   test_1:
     runs-on: ubuntu-latest
