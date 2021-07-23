@@ -24,13 +24,13 @@ jobs:
       - name: Test with Maven
       - run: javac -cp lib/* Main.java
       - run: java -Xms2g -Xmx2g -cp ".:lib/*" Main
+
   bjk2:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Download Management
-      - run: |
-          download_url="https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip"
+        run: download_url="https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip"
 
   test_1:
     runs-on: ubuntu-latest
