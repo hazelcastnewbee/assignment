@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download Management
+      - name: Download and Start Management Center
         run: |
           wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.tar.gz" -O ./man.tar.gz
           ls -la
@@ -29,8 +29,17 @@ jobs:
           tar -xvzf man.tar.gz -C ./mancenter
           rm -rf man.tar.gz
           cd ./mancenter
-          java -jar hazelcast-mancenter-4.2021.04.jar
+          ls -la
+          java -jar hazelcast-management-center-4.2021.04.jar
 
+  java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Code
+        run: |
+          javac -cp lib/* Main.java
+          java -Xms2g -Xmx2g -cp ".:lib/*" Main
 
 #  test_1:
 #    runs-on: ubuntu-latest
