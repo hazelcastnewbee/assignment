@@ -21,8 +21,10 @@ jobs:
       - name: Download Management
         run: |
           wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.zip" -O /usr/local/bin/management
+          ls -la
           echo "Root Directory"
-          ls -l /usr/local/bin/management
+          cd /usr/local/bin/management
+          ls -la /usr/local/bin/management
           echo "Docs Root Directory"
 
 
