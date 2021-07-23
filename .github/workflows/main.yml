@@ -29,9 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download Management
-        with:
-          url: " https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip"
-          auto-match: true
+      - run: |
+          download_url="https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip"
 
   test_1:
     runs-on: ubuntu-latest
