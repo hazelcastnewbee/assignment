@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Download Management
         run: |
-          wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.zip" -O ./
+          wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.zip" -O ./management
           ls -la
           echo "Root Directory"
           cd /usr/local/bin/
