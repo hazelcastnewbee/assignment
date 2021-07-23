@@ -23,9 +23,10 @@ jobs:
           wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.tar.gz" -O ./man.tar.gz
           ls -la
           echo "Root Directory"
-          mkdir -p mancenter && tar -xvzf man.tar.gz -C mancenter
+          mkdir -p ./mancenter
+          tar -xvzf man.tar.gz -C ./mancenter
           rm -rf man.tar.gz
-          cd mancenter
+          cd ./mancenter
           java -jar hazelcast-mancenter-4.2021.04.jar
 
 
