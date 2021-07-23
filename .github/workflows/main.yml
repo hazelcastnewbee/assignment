@@ -25,8 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: montudor/action-zip@v1
-      with:
-        args: unzip -qq /usr/local/bin/management/*.zip -d vendor
+        with:
+         args: unzip -qq /usr/local/bin/management/*.zip -d man
 
   test_1:
     runs-on: ubuntu-latest
