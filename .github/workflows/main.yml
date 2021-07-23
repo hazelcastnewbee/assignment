@@ -14,12 +14,13 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-  bjk2:
+  wget:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: wei/wget@v1
       - name: Download Management
-        run: download_url="https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip"
+        with:
+          args: -O man.zip https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip
 
   test_1:
     runs-on: ubuntu-latest
