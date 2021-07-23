@@ -13,6 +13,26 @@ jobs:
           java-version: 1.8
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+  bjk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Test with Maven
+      - run: javac -cp lib/* Main.java
+      - run: java -Xms2g -Xmx2g -cp ".:lib/*" Main
+  bjk2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download Management
+        with:
+          url: " https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip"
+          auto-match: true
+
   test_1:
     runs-on: ubuntu-latest
     steps:
