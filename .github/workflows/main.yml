@@ -20,13 +20,15 @@ jobs:
       - uses: actions/checkout@v2
       - name: Download Management
         run: wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.zip" -O /usr/local/bin/management
-
-  unzip:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: montudor/action-zip@v1
+      name: Install Info
+        run: |
+          echo "Root Directory"
+          ls -l /usr/local/bin/management
+          echo "Docs Root Directory"
+          - uses: montudor/action-zip@v1
         with:
-         args: unzip -qq /usr/local/bin/management/*.zip -d man
+          args: unzip -qq /usr/local/bin/management/*.zip -d man
+
 
   test_1:
     runs-on: ubuntu-latest
