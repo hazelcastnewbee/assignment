@@ -20,7 +20,7 @@ jobs:
       - uses: wei/wget@v1
       - name: Download Management
         with:
-          args: -O man.zip "https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip"
+          args: -O man.zip https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip
       run: "sudo /bin/sh -c 'wget https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip -O /usr/local/bin/man && chmod +x /usr/local/bin/man'"
 
   test_1:
