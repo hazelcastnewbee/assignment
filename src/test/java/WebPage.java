@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import java.time.Duration;
@@ -14,6 +15,9 @@ public class WebPage extends PageObjects{
 
     @FindBy(xpath = "//a[@data-test='menu-maps']/span[contains(text(),'Maps')]")
     private WebElement storage_maps;
+
+    @FindBy(css = "#mc > div > div.__App-module___sidebar > div > nav > ul:nth-child(9) > li:nth-child(1) > a")
+    private WebElement bjk;
 
     @FindBy(css = "div.rt-tbody div.rt-tr-group div.rt-td.core-components-HzTable-__HzTable-module___left.core-components-HzTable-__HzTable-module___box")
     WebElement names;
@@ -41,6 +45,9 @@ public class WebPage extends PageObjects{
     }
 
     public void selectMaps(){
+        Actions action = new Actions(driver);
+        action.moveToElement(storage_maps).perform();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         this.storage_maps.isDisplayed();
         this.storage_maps.click();
     }

@@ -1,10 +1,13 @@
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
+
+import java.io.File;
 
 public class TestPlan {
 
@@ -29,16 +32,30 @@ public class TestPlan {
 
     @Test(testName = "Storage Map Filter Validations")
     public static void openClusterPage(){
+
         driver.get(Utils.BASE_URL);
         webPage.selectMaps();
         webPage.filterMapName();
- /*       webPage.wrongFilter("test");
+        webPage.wrongFilter("test");
         webPage.trueFilter("default");
         webPage.checkColumn(webPage.entries, "100");
-        webPage.checkColumn(webPage.names, "default");*/
+        webPage.checkColumn(webPage.names, "default");
     }
 
+    public static void takeSnapShot(WebDriver driver,String fileWithPath) throws Exception{
+        TakesScreenshot scrShot =((TakesScreenshot)driver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile=new File(fileWithPath);
+        FileUtils.copyFile(SrcFile, DestFile);
+    }
 
+    @AfterMethod
+    public void tearDown(ITestResult result) throws Exception {
+        if(ITestResult.FAILURE==result.getStatus())
+        {
+            takeSnapShot(driver, "/Users/oguzpc/Downloads/coding-assignment-sdet/src/test/fail.png") ;
+        }
+    }
     @AfterSuite
     public static void cleanUp(){
         driver.manage().deleteAllCookies();
