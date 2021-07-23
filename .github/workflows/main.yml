@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download Management
-        run: "sudo /bin/sh -c 'wget https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip -O /usr/local/bin/man && chmod +x /usr/local/bin/man'"
+        run: wget "https://download.hazelcast.com/management-center/hazelcast-managementcenter-4.2021.04.zip" -O /usr/local/bin/man
 
   test_1:
     runs-on: ubuntu-latest
