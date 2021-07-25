@@ -23,7 +23,7 @@ jobs:
         run: mvn -B package --file pom.xml test
       - name: ls
         if: ${{ always() }}
-        run: ls -l
+        run: cd target & ls -l
       - name: Upload artifact
         if: ${{ always() }}
         uses: actions/upload-artifact@v1
