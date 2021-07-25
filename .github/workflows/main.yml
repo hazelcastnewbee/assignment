@@ -1,64 +1,29 @@
-name: Build and Test
-
-on: [push]
-
+name: docker-compose-actions-workflow
+on: push
 jobs:
-  wget:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download and Start Management Center
-        run: |
-          wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.tar.gz" -O ./man.tar.gz
-          ls -la
-          echo "Root Directory"
-          cd ./
-          mkdir -p ./mancenter
-          ls -la
-          tar -xvzf man.tar.gz -C ./mancenter
-          rm -rf man.tar.gz
-          cd ./mancenter/hazelcast-management-center-4.2021.04
-          ls -la
-          java -jar hazelcast-management-center-4.2021.04.jar
+      - name: Build
+        run: docker-compose build
+      - name: UP
+        run: docker-compose up -d
+      - uses: juliangruber/sleep-action@v1
+        with:
+          time: 60s
 
-  java:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build Code
-        run: |
-          javac -cp lib/* Main.java
-          java -Xms2g -Xmx2g -cp ".:lib/*" Main
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
-
-#  test_1:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#      - name: Test with Maven
-#        run: mvn clean test
-#
-#  test_2:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#      - name: Test with Maven
-#        run: mvn -B package --file pom.xml test
+      - uses: actions/checkout@v2
+      - name: Test with Maven
+        run: mvn -B package --file pom.xml test
+      - name: Upload artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v1
+        with:
+          name: surefire-reports
+          path: /target/surefire-reports/**
