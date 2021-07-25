@@ -24,7 +24,7 @@ jobs:
       - name: ls
         if: ${{ always() }}
         run: cd target & ls -l
-      - name: Upload artifact
+      - name: Upload artifactf
         if: ${{ always() }}
         uses: actions/upload-artifact@v1
         with:
