@@ -28,13 +28,15 @@ jobs:
         if: ${{ always() }}
         run: pwd & ls -l
         
-      - uses: actions/checkout@v2
+      - name: create
         if: ${{ always() }}
+      - uses: actions/checkout@v2
       - run: mkdir -p ~/
       - run: echo hello > ~/world.txt
       
-      - uses: actions/upload-artifact@v2
+      - name: upload
         if: ${{ always() }}
+      - uses: actions/upload-artifact@v2      
         with:
           name: my-artifact
           path: ~/world.txt
