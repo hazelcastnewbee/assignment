@@ -53,7 +53,7 @@ public class TestPlan {
     public void tearDown(ITestResult result) throws Exception {
         if(ITestResult.FAILURE==result.getStatus())
         {
-            takeSnapShot(driver, "/Users/oguzpc/Downloads/coding-assignment-sdet/src/test/fail.png") ;
+            takeSnapShot(driver, "/") ;
         }
     }
     @AfterSuite
