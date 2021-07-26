@@ -23,7 +23,7 @@ jobs:
         run: mvn -B package --file pom.xml test
       - name: ls
         if: ${{ always() }}
-        run: ls ~/target/surefire-reports/**
+        run: ls ~/screen/
       - name: Upload artifactf
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: shot
-          path: ~/fail.png
+          path: ~/screen/**
