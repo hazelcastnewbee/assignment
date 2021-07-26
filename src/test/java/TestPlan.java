@@ -40,6 +40,8 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
         webPage.enableDevMode();
         webPage.clusterConfig();
+        webPage.saveConfig();
+        webPage.selectCluster();
         webPage.selectMaps();
         webPage.filterMapName();
         webPage.wrongFilter("test");
