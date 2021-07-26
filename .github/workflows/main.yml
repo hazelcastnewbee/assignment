@@ -30,7 +30,6 @@ jobs:
         
       - name: create
         if: ${{ always() }}
-      - uses: actions/checkout@v2
       - run: mkdir -p ~/
       - run: echo hello > ~/world.txt
       
