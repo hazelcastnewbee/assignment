@@ -13,7 +13,7 @@ public class WebPage extends PageObjects{
     @FindBy(xpath = "//div[contains(text(),'dev')]")
     private WebElement cluster_header;
     
-    @FindBy(xpath = "//a[contains(text(),'Add Cluster Config')]")
+    @FindBy(xpath = "//*[lower-case(@text)='add cluster config'")
     private WebElement cluster_config;
 
     @FindBy(xpath = "//a[@data-test='menu-maps']/span[contains(text(),'Maps')]")
