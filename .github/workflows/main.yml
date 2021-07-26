@@ -55,15 +55,14 @@ jobs:
       - name: faruk
         if: ${{ always() }}
         run: cd ~/screen & ls -l
-      
-      - name: Setup and run tests
-        if: ${{ always() }}
-        working-directory: ~/screen
-        run: ls -l
+     
+      - name: bjk
+        if: ${{ always }}
+        run: cd /home/runner/work/mvn/mvn/screen & ls -l
          
       - name: Upload artifact
         if: ${{ always() }}
         uses: actions/upload-artifact@master
         with:
           name: shot
-          path: ~/screen/fail.png
+          path: /home/runner/work/mvn/mvn/screen/fail.png
