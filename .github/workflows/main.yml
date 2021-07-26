@@ -28,7 +28,7 @@ jobs:
       - run: mkdir -p ~/
       - run: echo hello > ~/world.txt
       - uses: actions/upload-artifact@v2
-         with:
+        with:
           name: my-artifact
           path: ~/world.txt
       - name: Upload artifact
