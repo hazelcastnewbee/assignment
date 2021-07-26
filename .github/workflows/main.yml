@@ -23,10 +23,16 @@ jobs:
         run: mvn -B package --file pom.xml test
       - name: ls
         if: ${{ always() }}
-        run: cd src & ls -l & pwd
+        run: ls ~/target/surefire-reports/**
       - name: Upload artifactf
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: surefire-reports
           path: /target/surefire-reports/**
+      - name: Upload artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: shot
+          path: ~/fail.png
