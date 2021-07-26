@@ -54,11 +54,9 @@ jobs:
       
       - name: faruk
         if: ${{ always() }}
-        run: cd ~/screen & ls -l
-     
-      - name: bjk
-        if: ${{ always }}
-        run: cd /home/runner/work/mvn/mvn/screen & ls -l
+        run: |
+             cd ~/screen & ls -l
+             cd /home/runner/work/mvn/mvn/screen & ls -l
          
       - name: Upload artifact
         if: ${{ always() }}
