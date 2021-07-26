@@ -27,6 +27,9 @@ public class WebPage extends PageObjects{
 
     @FindBy(xpath = "//span[contains(text(),'No data available in table')]")
     private WebElement no_data_filter;
+    
+    @FindBy(xpath = "//span[contains(text(),'ENABLE')]")
+    private WebElement enable_dev_mode;
 
     @FindBy(xpath = "//input[@type='text']")
     private WebElement name_filter;
@@ -51,7 +54,11 @@ public class WebPage extends PageObjects{
         this.storage_maps.isDisplayed();
         this.storage_maps.click();
     }
-
+    
+    public void enableDevMode() {
+        this.enable_dev_mode.click();
+    }
+    
     public void filterMapName(){
         this.name_filter.isDisplayed();
     }
