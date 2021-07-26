@@ -19,8 +19,7 @@ public class TestPlan {
     static WebPage webPage;
 
     @BeforeClass
-    public static void setUp()
-    {
+    public static void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");

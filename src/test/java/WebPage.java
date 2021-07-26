@@ -16,7 +16,7 @@ public class WebPage extends PageObjects{
     @FindBy(xpath = "//button[contains(text(),'Add Cluster Config')]")
     private WebElement cluster_config;
     
-    @FindBy(xpath = "//button[@type='submit'")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement save_config;
 
     @FindBy(xpath = "//a[@data-test='menu-maps']/span[contains(text(),'Maps')]")
@@ -76,6 +76,7 @@ public class WebPage extends PageObjects{
     }
     
     public void filterMapName(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         this.name_filter.isDisplayed();
     }
 
