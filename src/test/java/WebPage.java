@@ -16,7 +16,7 @@ public class WebPage extends PageObjects{
     @FindBy(xpath = "//button[contains(text(),'Add Cluster Config')]")
     private WebElement cluster_config;
     
-    @FindBy(xpath = "//button[@type='submit'")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement save_config;
 
     @FindBy(xpath = "//a[@data-test='menu-maps']/span[contains(text(),'Maps')]")
