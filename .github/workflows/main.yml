@@ -24,14 +24,12 @@ jobs:
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
       
-      - uses: actions/checkout@v2
       - name: deneme
         if: ${{ always() }}
         run: mkdir -p ~/ & echo hello > ~/world.txt
         
-      - uses: actions/checkout@master
-        if: ${{ always() }}
       - name: copy file
+        if: ${{ always() }}
         uses: canastro/copy-file-action@master
         with:
          source: "~/screen/fail.png"
