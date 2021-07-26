@@ -4,6 +4,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: bjk
+        run: pwd & ls -l
+        
       - uses: actions/checkout@v2
       - name: Build
         run: docker-compose build
