@@ -38,14 +38,7 @@ public class TestPlan {
     public static void openClusterPage(){
 
         driver.get(Utils.BASE_URL);
-        System.out.println("sayfayi aciyorum");
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            System.out.println("hata aldım");
-        }
-        System.out.println("bitti");
-        webPage.selectMaps();
+//        webPage.selectMaps();
         webPage.filterMapName();
         webPage.wrongFilter("test");
         webPage.trueFilter("default");
@@ -64,7 +57,7 @@ public class TestPlan {
     public void tearDown(ITestResult result) throws Exception {
         if(ITestResult.FAILURE==result.getStatus())
         {
-            takeSnapShot(driver, "/") ;
+            takeSnapShot(driver, "screen/fail.png") ;
         }
     }
 
