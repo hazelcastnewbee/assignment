@@ -25,6 +25,10 @@ public class TestPlan {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--allow-running-insecure-content");
         driver = new ChromeDriver(options);
         webPage = new WebPage(driver);
         driver.manage().window().maximize();
@@ -34,6 +38,13 @@ public class TestPlan {
     public static void openClusterPage(){
 
         driver.get(Utils.BASE_URL);
+        System.out.println("sayfayi aciyorum");
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            System.out.println("hata aldım");
+        }
+        System.out.println("bitti");
         webPage.selectMaps();
         webPage.filterMapName();
         webPage.wrongFilter("test");
@@ -56,6 +67,7 @@ public class TestPlan {
             takeSnapShot(driver, "/") ;
         }
     }
+
     @AfterSuite
     public static void cleanUp(){
         driver.manage().deleteAllCookies();

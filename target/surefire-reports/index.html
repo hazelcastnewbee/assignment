@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-TestPlan" class="navigator-link">
-              <span class="suite-name border-passed">TestPlan</span>
+              <span class="suite-name border-failed">TestPlan</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,21 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-TestPlan" class="hide-methods passed suite-TestPlan"> (hide)</a> <!-- hide-methods passed suite-TestPlan -->
-                      <a href="#" panel-name="suite-TestPlan" class="show-methods passed suite-TestPlan"> (show)</a> <!-- show-methods passed suite-TestPlan -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-TestPlan" class="hide-methods failed suite-TestPlan"> (hide)</a> <!-- hide-methods failed suite-TestPlan -->
+                      <a href="#" panel-name="suite-TestPlan" class="show-methods failed suite-TestPlan"> (show)</a> <!-- show-methods failed suite-TestPlan -->
                     </span>
-                    <div class="method-list-content passed suite-TestPlan">
+                    <div class="method-list-content failed suite-TestPlan">
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-TestPlan" title="TestPlan" class="method navigator-link" hash-for-method="openClusterPage">openClusterPage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-TestPlan -->
+                    </div> <!-- method-list-content failed suite-TestPlan -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -119,9 +119,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-TestPlan" class="panel TestPlan">
-          <div class="suite-TestPlan-class-passed">
+          <div class="suite-TestPlan-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">TestPlan</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -130,10 +130,30 @@
                   <a name="openClusterPage">
                   </a> <!-- openClusterPage -->
                   <span class="method-name">openClusterPage</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: headless chrome=92.0.4515.107)
+Build info: version: &apos;4.0.0-beta-4&apos;, revision: &apos;29f46d02dd&apos;
+System info: host: &apos;Oguzs-MacBook-Air.local&apos;, ip: &apos;fe80:0:0:0:8ee:b8cf:18f0:7a40%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.3&apos;, java.version: &apos;16.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9e12cbb6faa8dbda9fb7aa99411b9a36, get {url=http://localhost:8080}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 92.0.4515.107, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: /var/folders/mq/28dq8g9d0vd...}, goog:chromeOptions: {debuggerAddress: localhost:58784}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:58784/devtoo..., se:cdpVersion: 92.0.4515.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9e12cbb6faa8dbda9fb7aa99411b9a36
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:162)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:137)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:612)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:326)
+	at TestPlan.openClusterPage(TestPlan.java:36)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 41 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-TestPlan-class-passed -->
+          </div> <!-- suite-TestPlan-class-failed -->
         </div> <!-- panel TestPlan -->
         <div panel-name="test-xml-TestPlan" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -189,12 +209,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'openClusterPage')
 data.setCell(0, 2, 'TestPlan')
-data.setCell(0, 3, 9909);
+data.setCell(0, 3, 288);
 window.suiteTableData['TestPlan']= { tableData: data, tableDiv: 'times-div-TestPlan'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 9 seconds</span>
+              <span class="suite-total-time">Total running time: 288 ms</span>
               <div id="times-div-TestPlan">
               </div> <!-- times-div-TestPlan -->
             </div> <!-- times-div -->
@@ -221,13 +241,19 @@ return data;
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
               <div class="chronological-class-name">TestPlan</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">openClusterPage</span>
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">openClusterPage</span>
+                <span class="method-start">2432 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">9929 ms</span>
+                <span class="method-start">2854 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

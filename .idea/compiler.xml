@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="coding-assignment-sdet" target="16" />
+      <module name="coding-assignment-sdet" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

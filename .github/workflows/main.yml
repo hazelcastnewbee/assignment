@@ -1,20 +1,32 @@
-name: Maven CI/CD
-
-on:
- push:
-    branches: [ master ]
-
+name: docker-compose-actions-workflow
+on: push
 jobs:
-  build_and_test:
-
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 15
-      uses: actions/setup-java@v1
-      with:
-        java-version: 15
+      - uses: actions/checkout@v2
+      - name: Build
+        run: docker-compose build
+      - name: UP
+        run: docker-compose up -d
+      - uses: juliangruber/sleep-action@v1
+        with:
+          time: 60s
 
-    - name: Build project with Maven
-      run: mvn -B package --file pom.xml
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - uses: actions/checkout@v2
+      - name: Test with Maven
+        run: mvn -B package --file pom.xml test
+      - name: ls
+        if: ${{ always() }}
+        run: cd src & ls -l & pwd
+      - name: Upload artifactf
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: surefire-reports
+          path: /target/surefire-reports/**
