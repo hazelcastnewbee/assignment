@@ -26,11 +26,11 @@ jobs:
       
       - name: deneme
         if: ${{ always() }}
-        run: echo hello > ~/world.txt
+        run: |
+          echo hello > ~/world.txt
+          pwd
+          ls -l
       
-      - name: deneme ls
-        if: ${{ always() }}
-        run: pwd & ls -l
         
       - name: copy file
         if: ${{ always() }}
