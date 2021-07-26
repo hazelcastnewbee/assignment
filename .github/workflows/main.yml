@@ -58,6 +58,7 @@ jobs:
         
       - name: checkout  
       - uses: actions/checkout@v2
+      - run: ls -l 
       
       - name: Setup and run tests
         if: ${{ always() }}
