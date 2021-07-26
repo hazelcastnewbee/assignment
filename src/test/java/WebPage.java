@@ -16,9 +16,6 @@ public class WebPage extends PageObjects{
     @FindBy(xpath = "//a[@data-test='menu-maps']/span[contains(text(),'Maps')]")
     private WebElement storage_maps;
 
-    @FindBy(css = "#mc > div > div.__App-module___sidebar > div > nav > ul:nth-child(9) > li:nth-child(1) > a")
-    private WebElement bjk;
-
     @FindBy(css = "div.rt-tbody div.rt-tr-group div.rt-td.core-components-HzTable-__HzTable-module___left.core-components-HzTable-__HzTable-module___box")
     WebElement names;
 
@@ -56,7 +53,9 @@ public class WebPage extends PageObjects{
     }
     
     public void enableDevMode() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         this.enable_dev_mode.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
     
     public void filterMapName(){
