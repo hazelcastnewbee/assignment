@@ -38,7 +38,8 @@ public class TestPlan {
     public static void openClusterPage(){
 
         driver.get(Utils.BASE_URL);
-//        webPage.selectMaps();
+        webPage.enableDevMode();
+        webPage.selectMaps();
         webPage.filterMapName();
         webPage.wrongFilter("test");
         webPage.trueFilter("default");
