@@ -57,8 +57,10 @@ jobs:
         run: cd ~/screen & ls -l
         
       - uses: actions/checkout@v2
-        if: ${{ always() }}
+      - name: checkout
+      
       - name: Setup and run tests
+        if: ${{ always() }}
         working-directory: ~/screen
         run: ls -l
          
