@@ -27,9 +27,10 @@ jobs:
       - name: ls
         if: ${{ always() }}
         run: pwd & ls -l
-        
-      - uses: actions/checkout@v2
+      
+      - name: deneme
         if: ${{ always() }}
+      - uses: actions/checkout@v2
       - run: mkdir -p ~/
       - run: echo hello > ~/world.txt
       - uses: actions/upload-artifact@v2
