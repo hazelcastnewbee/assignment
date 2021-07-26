@@ -54,7 +54,7 @@ jobs:
       
       - name: faruk
         if: ${{ always() }}
-        run: cd ~ & ls -l & cd screen & ls -l
+        run: cd ~ & ls -l & cd /screen & ls -l
          
       - name: Upload artifact
         if: ${{ always() }}
