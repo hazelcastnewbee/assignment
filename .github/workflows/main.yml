@@ -55,6 +55,12 @@ jobs:
       - name: faruk
         if: ${{ always() }}
         run: cd ~/screen & ls -l
+        
+      - uses: actions/checkout@v2
+        if: ${{ always() }}
+      - name: Setup and run tests
+        working-directory: ~/screen
+        run: ls -l
          
       - name: Upload artifact
         if: ${{ always() }}
