@@ -39,7 +39,7 @@ jobs:
         if: ${{ always() }}
         run: pwd & ls -l
       
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@master
         if: ${{ always() }}
         with:
          name: my-artifact
@@ -47,7 +47,7 @@ jobs:
           
       - name: Upload artifact
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@master
         with:
           name: shot
-          path: ~/fail.png
+          path: ~/screen/fail.png
