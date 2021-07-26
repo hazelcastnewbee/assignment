@@ -13,8 +13,11 @@ public class WebPage extends PageObjects{
     @FindBy(xpath = "//div[contains(text(),'dev')]")
     private WebElement cluster_header;
     
-    @FindBy(xpath = "//*[lower-case(@text)='add cluster config'")
+    @FindBy(xpath = "//button[contains(text(),'Add Cluster Config')]")
     private WebElement cluster_config;
+    
+    @FindBy(xpath = "//button[@type='submit'")
+    private WebElement save_config;
 
     @FindBy(xpath = "//a[@data-test='menu-maps']/span[contains(text(),'Maps')]")
     private WebElement storage_maps;
@@ -39,6 +42,7 @@ public class WebPage extends PageObjects{
     }
 
     public void selectCluster(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         this.active_cluster.isDisplayed();
         this.active_cluster.click();
     }
@@ -46,6 +50,11 @@ public class WebPage extends PageObjects{
     public void clusterConfig(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         this.cluster_config.click();
+    }
+    
+    public void saveConfig(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        this.save_config.click();    
     }
     
     public void validateClusterHeader(){
