@@ -26,7 +26,7 @@ jobs:
       
       - name: deneme
         if: ${{ always() }}
-        run: mkdir -p ~/b & echo hello > ~/b/world.txt
+        run: echo hello > ~/world.txt
       
       - name: deneme ls
         if: ${{ always() }}
