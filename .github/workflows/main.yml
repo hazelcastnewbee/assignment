@@ -27,6 +27,10 @@ jobs:
       - name: deneme
         if: ${{ always() }}
         run: mkdir -p ~/ & echo hello > ~/world.txt
+      
+      - name: deneme ls
+        if: ${{ always() }}
+        run: pwd & ls -l
         
       - name: copy file
         if: ${{ always() }}
