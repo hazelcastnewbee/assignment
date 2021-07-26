@@ -23,17 +23,23 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
-        
-      - name: ls
-        if: ${{ always() }}
-        run: pwd & ls -l
-      
       
       - uses: actions/checkout@v2
       - name: deneme
         if: ${{ always() }}
         run: mkdir -p ~/ & echo hello > ~/world.txt
-     
+        
+      - uses: actions/checkout@master
+      - name: copy file
+        uses: canastro/copy-file-action@master
+        with:
+         source: "~/screen/fail.png"
+         target: "~/fail.png"
+      
+      - name: ls
+        if: ${{ always() }}
+        run: pwd & ls -l
+      
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:
@@ -45,4 +51,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: shot
-          path: ~/screen/**
+          path: ~/fail.png
