@@ -53,6 +53,21 @@ public class TestPlan {
         webPage.checkColumn(webPage.names, "default");
     }
 
+    public static void takeSnapShot(WebDriver driver,String fileWithPath) throws Exception{
+        TakesScreenshot scrShot =((TakesScreenshot)driver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile=new File(fileWithPath);
+        FileUtils.copyFile(SrcFile, DestFile);
+    }
+
+    @AfterMethod
+    public void tearDown(ITestResult result) throws Exception {
+        if(ITestResult.FAILURE==result.getStatus())
+        {
+            takeSnapShot(driver, "/") ;
+        }
+    }
+
     @AfterSuite
     public static void cleanUp(){
         driver.manage().deleteAllCookies();
