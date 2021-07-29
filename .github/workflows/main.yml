@@ -30,3 +30,10 @@ jobs:
         with:
           name: testReport
           path: /home/runner/work/mvn/mvn/target/surefire-reports/**
+
+      - name: Upload Failed Screenshot
+        if: ${{ always() }}
+        uses: actions/upload-artifact@master
+        with:
+          name: screenshot
+          path: /home/runner/work/mvn/mvn/screen/fail.png

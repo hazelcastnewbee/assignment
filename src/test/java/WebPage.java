@@ -24,7 +24,7 @@ public class WebPage extends PageObjects{
     @FindBy(css = "div.rt-tbody div.rt-tr-group div.rt-td.core-components-HzTable-__HzTable-module___left.core-components-HzTable-__HzTable-module___box > div")
     WebElement names;
 
-    @FindBy(css = "div.rt-tbody div.rt-tr-group div.rt-td.core-components-HzTable-__HzTable-module___left.core-components-HzTable-__HzTable-module___box + div > div")
+    @FindBy(css = "div.rt-tbody div.rt-tr-group div.rt-td.core-components-HzTable-__HzTable-module___left.core-components-HzTable-__HzTable-module___box + div")
     WebElement entries;
 
     
@@ -66,6 +66,7 @@ public class WebPage extends PageObjects{
 
 
     public void checkColumn(@org.jetbrains.annotations.NotNull WebElement columnPath, String value){
+        wait.until(ExpectedConditions.elementToBeClickable(columnPath));
         Assert.assertEquals(columnPath.getText(), value);
     }
 
