@@ -33,21 +33,30 @@ public class TestPlan {
         driver.manage().window().maximize();
     }
 
-    @Test(testName = "Storage Map Filter Validations")
+    @Test(testName = "Open Storage Maps Page")
     public static void openClusterPage(){
-
         driver.get(Utils.BASE_URL);
         webPage.enableDevMode();
         webPage.clusterConfig();
         webPage.saveConfig();
         webPage.selectCluster();
         webPage.selectMaps();
+
+    }
+
+    @Test(testName = "Map Filter", dependsOnMethods={"openClusterPage"})
+    public static void filterStorageMapsEntries(){
         webPage.filterMapName();
         webPage.wrongFilter("test");
         webPage.trueFilter("default");
+    }
+
+    @Test(testName = "Map Entry/Name Validation", dependsOnMethods={"filterStorageMapsEntries"})
+    public static void validateStorageMapsEntriesNames(){
         webPage.checkColumn(webPage.entries, "100");
         webPage.checkColumn(webPage.names, "default");
     }
+
 
     public static void takeSnapShot(WebDriver driver,String fileWithPath) throws Exception{
         TakesScreenshot scrShot =((TakesScreenshot)driver);
