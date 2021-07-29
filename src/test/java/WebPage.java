@@ -70,7 +70,7 @@ public class WebPage extends PageObjects{
     }
     
     public void filterMapName(){
-        wait.until(ExpectedConditions.invisibilityOf(this.enable_dev_mode));
+        wait.until(ExpectedConditions.invisibilityOf(this.name_filter));
         this.name_filter.isDisplayed();
     }
 
