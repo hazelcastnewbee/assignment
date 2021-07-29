@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import org.testng.reporters.jq.Main;
 
 import java.io.File;
 
@@ -43,17 +42,9 @@ public class TestPlan {
         webPage.saveConfig();
         webPage.selectCluster();
         webPage.selectMaps();
-
     }
 
-    @Test(testName = "Map Filter", dependsOnMethods={"openClusterPage"})
-    public static void filterStorageMapsEntries(){
-        webPage.filterMapName();
-        webPage.wrongFilter("test");
-        webPage.trueFilter("default");
-    }
-
-    @Test(testName = "Map Entry/Name Validation", dependsOnMethods={"filterStorageMapsEntries"})
+    @Test(testName = "Map Entry/Name Validation", dependsOnMethods={"openClusterPage"})
     public static void validateStorageMapsEntriesNames(){
         webPage.checkColumn(webPage.entries, "100");
         webPage.checkColumn(webPage.names, "default");

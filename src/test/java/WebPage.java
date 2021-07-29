@@ -27,14 +27,9 @@ public class WebPage extends PageObjects{
     @FindBy(css = "div.rt-tbody div.rt-tr-group div.rt-td.core-components-HzTable-__HzTable-module___left.core-components-HzTable-__HzTable-module___box + div > div")
     WebElement entries;
 
-    @FindBy(xpath = "//span[contains(text(),'No data available in table')]")
-    private WebElement no_data_filter;
     
     @FindBy(xpath = "//span[contains(text(),'ENABLE')]")
     private WebElement enable_dev_mode;
-
-    @FindBy(xpath = "//input[@type='text']")
-    private WebElement name_filter;
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
@@ -68,26 +63,7 @@ public class WebPage extends PageObjects{
         wait.until(ExpectedConditions.elementToBeClickable(this.enable_dev_mode));
         this.enable_dev_mode.click();
     }
-    
-    public void filterMapName(){
-        wait.until(ExpectedConditions.invisibilityOf(this.name_filter));
-        this.name_filter.isDisplayed();
-    }
 
-    public void trueFilter(String name){
-        this.name_filter.clear();
-        this.name_filter.sendKeys(name);
-        String map_names;
-        map_names = this.names.getText();
-        Assert.assertEquals(map_names, name);
-    }
-
-    public void wrongFilter(String name){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        this.name_filter.clear();
-        this.name_filter.sendKeys(name);
-        this.no_data_filter.isDisplayed();
-    }
 
     public void checkColumn(@org.jetbrains.annotations.NotNull WebElement columnPath, String value){
         Assert.assertEquals(columnPath.getText(), value);
