@@ -23,17 +23,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
-         
-      - name: Upload Failure Screenshot
-        if: ${{ always() }}
-        uses: actions/upload-artifact@master
-        with:
-          name: shot
-          path: /home/runner/work/mvn/mvn/screen/fail.png
 
       - name: Upload Surefire Report
         if: ${{ always() }}
         uses: actions/upload-artifact@master
         with:
-          name: shot
+          name: testReport
           path: /home/runner/work/mvn/mvn/target/surefire-reports/**

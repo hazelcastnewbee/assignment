@@ -58,9 +58,9 @@ public class WebPage extends PageObjects{
     }
 
     public void selectMaps(){
+        wait.until(ExpectedConditions.elementToBeClickable(this.storage_maps));
         Actions action = new Actions(driver);
         action.moveToElement(storage_maps).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(this.storage_maps));
         this.storage_maps.click();
     }
     

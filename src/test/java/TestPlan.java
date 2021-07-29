@@ -36,10 +36,10 @@ public class TestPlan {
     @Test(testName = "Open Storage Maps Page")
     public static void openClusterPage(){
         driver.get(Utils.BASE_URL);
-        webPage.enableDevMode();
-        webPage.clusterConfig();
-        webPage.saveConfig();
-        webPage.selectCluster();
+//        webPage.enableDevMode();
+//        webPage.clusterConfig();
+//        webPage.saveConfig();
+//        webPage.selectCluster();
         webPage.selectMaps();
 
     }
