@@ -36,10 +36,10 @@ public class TestPlan {
     @Test(testName = "Open Storage Maps Page")
     public static void openClusterPage(){
         driver.get(Utils.BASE_URL);
-//        webPage.enableDevMode();
-//        webPage.clusterConfig();
-//        webPage.saveConfig();
-//        webPage.selectCluster();
+        webPage.enableDevMode();
+        webPage.clusterConfig();
+        webPage.saveConfig();
+        webPage.selectCluster();
         webPage.selectMaps();
 
     }
@@ -55,22 +55,6 @@ public class TestPlan {
     public static void validateStorageMapsEntriesNames(){
         webPage.checkColumn(webPage.entries, "100");
         webPage.checkColumn(webPage.names, "default");
-    }
-
-
-    public static void takeSnapShot(WebDriver driver,String fileWithPath) throws Exception{
-        TakesScreenshot scrShot =((TakesScreenshot)driver);
-        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-        File DestFile=new File(fileWithPath);
-        FileUtils.copyFile(SrcFile, DestFile);
-    }
-
-    @AfterMethod
-    public void tearDown(ITestResult result) throws Exception {
-        if(ITestResult.FAILURE==result.getStatus())
-        {
-            takeSnapShot(driver, "screen/fail.png") ;
-        }
     }
 
     @AfterSuite
