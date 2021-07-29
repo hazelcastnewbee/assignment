@@ -36,7 +36,7 @@ public class WebPage extends PageObjects{
     @FindBy(xpath = "//input[@type='text']")
     private WebElement name_filter;
 
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
     public WebPage(WebDriver driver) {
         super(driver);
